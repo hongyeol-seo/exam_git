@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#과제를 위한 변경
+
 # C extensions
 *.so
 
