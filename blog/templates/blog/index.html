@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Blog</title>
+<style>
+    h1{
+        background-color: cornsilk;
+    }
+    h2{
+        color : yellow;
+        background-color: black;
+    }
+    #font2{
+        color : blue
+    }
+    .content{
+        color : red
+    }
+</style>
+</head>
+<body>
+    <h1>Blog!</h1>
+
+        {% comment %} {% for p in posts %}
+            <h3>{{ p }}
+        {% endfor %} {% endcomment %}
+
+        {% for p in posts %}
+        <hr> <!-- 수평선 추가 -->
+        <h2> <a href="{{ p.get_absolute_url }}"> {{ p.title }} </a></h2>
+        <h4 id="font2"> {{ p.created_at }} </h4>
+        <p class="content"> {{ p.content }} </p>
+        {% endfor %}
+</body>
+</html>

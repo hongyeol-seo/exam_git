@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-]
+    path('blog/', include('blog.urls'))
+    # include는 찾은 url 패턴에 대해 다른 urls 파일로 넘겨주는 역할을 합니다.
+    # 제가 만든 Django 프로젝트의 프로젝트 디렉토리에 있는 urls.py는 다음과 같습니다.
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
